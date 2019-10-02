@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const morgan = require('morgan')
+
 const routes = require('./routes')
 require('dotenv').config()
 
@@ -11,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL, {
 })
 
 app.use(express.json())
+app.use(morgan('tiny'))
 app.use(routes)
 
 const port = process.env.PORT || 3333
