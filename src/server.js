@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL, {
 })
 
 app.use(express.json())
-app.use(morgan('tiny'))
+app.use(morgan('dev'))
 app.use(routes)
 
 const port = process.env.PORT || 3333
